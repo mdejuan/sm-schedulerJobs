@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>  	
+  	<definition name="admin-scheduler-list" template="/layout/admin/layout.jsp">
+  		<put-attribute name="body" value="/pages/admin/scheduler/schedulerList.jsp" /> 
+  	</definition>
+  	
+  	<definition name="admin-scheduler-details" template="/layout/admin/layout.jsp">
+  		<put-attribute name="body" value="/pages/admin/scheduler/scheduler.jsp" /> 
+  	</definition> 
+  	
+  	<definition name="admin-jobResult-list" template="/layout/admin/layout.jsp">
+  		<put-attribute name="body" value="/pages/admin/jobResult/jobResultList.jsp" /> 
+  	</definition>
+  	
+  	<definition name="admin-jobResult-details" template="/layout/admin/layout.jsp">
+  		<put-attribute name="body" value="/pages/admin/jobResult/jobResult.jsp" /> 
+  	</definition>	
+</tiles-definitions>

@@ -1,0 +1,18 @@
+{"menus":[
+	{"menu":{
+		"code":"scheduler","url":"","role":"STORE","order":3,"menus":
+		[
+			{"menu":{
+				"code":"scheduler-create","url":"/admin/scheduler/create.html","role":"STORE","order":0
+			}},
+			{"menu":{
+				"code":"scheduler-list","url":"/admin/scheduler/list.html","role":"STORE","order":1
+			}},
+			{"menu":{
+				"code":"jobResult-list","url":"/admin/jobResult/list.html","role":"STORE","order":2
+			}}
+		]
+	}}
+]}
+
+
