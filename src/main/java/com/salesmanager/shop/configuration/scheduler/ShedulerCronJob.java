@@ -45,12 +45,12 @@ public class ShedulerCronJob {
 							result.setMerchant(emailMarketing.getMerchant());
 							if (emailMarketing.getDate().toString().equals(currentDateFormatted)) {
 								emailMarketingService.sendMarketingEmail(emailMarketing);
-								result.setResult("ok");
+								result.setResult("<font color='green'>ok</font>");
 								jobResultService.save(result);
 
 							}
 						} catch (Exception e) {
-							result.setResult("ko");
+							result.setResult("<font color='red'>ko</font>");
 							result.setDescription(e.getCause().getMessage().toString());
 							jobResultService.save(result);
 						}

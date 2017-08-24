@@ -1,0 +1,5 @@
+- Copy tiles-admin-scheduler.xml to /WEB-INF/tiles/
+- Add tile entry to ShopApplicationConfiguration
+- Add SchedulerConfiguration.class to ShopApplicationConfiguration: @Import({ CoreApplicationConfiguration.class, SchedulerConfiguration.class})
+- Add entry <beans:value>classpath:bundles/scheduler</beans:value>  to shopizer-servlet-context.xml
+- Add entry dependency sm-schedulerJobs to sm-shop pom.xml 
