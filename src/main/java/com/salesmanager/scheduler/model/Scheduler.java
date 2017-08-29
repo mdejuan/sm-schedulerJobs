@@ -1,7 +1,10 @@
 package com.salesmanager.scheduler.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -11,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
@@ -74,6 +78,9 @@ public class Scheduler extends SalesManagerEntity<Long, Scheduler> implements Au
 	@ManyToOne(targetEntity = MerchantStore.class)
 	@JoinColumn(name="MERCHANT_ID")
 	private MerchantStore merchant;
+	
+	@OneToMany(mappedBy = "scheduler", cascade = CascadeType.REMOVE, orphanRemoval = true)
+	private List<JobResult> jobResult = new ArrayList<JobResult>();
 	
 	
 	@Embedded
@@ -189,6 +196,16 @@ public class Scheduler extends SalesManagerEntity<Long, Scheduler> implements Au
 
 	public void setLastExcecDate(Date lastExcecDate) {
 		this.lastExcecDate = lastExcecDate;
+	}
+
+
+	public List<JobResult> getJobResult() {
+		return jobResult;
+	}
+
+
+	public void setJobResult(List<JobResult> jobResult) {
+		this.jobResult = jobResult;
 	}
 	
 	

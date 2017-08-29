@@ -2,7 +2,8 @@ package com.salesmanager.shop.configuration.scheduler;
 
 public enum SchedulerType {
 	EMAIL_MARKETING("Marketing Email"),
-	PROMOTIONS("Promotions");
+	PRODUCT_PROMOTIONS("Product Promotions"),
+	ORDER_PROMOTIONS("Orde Promotions");
 	
 	private String value;
 	 

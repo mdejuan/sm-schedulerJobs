@@ -61,38 +61,58 @@ public class ShedulerCronJob {
 						}
 					}
 
-				} else if (scheduler.getType().equals(SchedulerType.PROMOTIONS.toString())) {
+				} else if (scheduler.getType().equals(SchedulerType.PRODUCT_PROMOTIONS.toString())) {
 					List<Promotion> promotionsStart = new ArrayList<Promotion>();
 					List<Promotion> promotionsStop = new ArrayList<Promotion>();
 					List<Promotion> promotions = promotionService.list();
 					for (Promotion promotion : promotions) {
 						if ((promotion.getPromotionType().equals(PromotionType.Category_Discount.toString())
 								|| promotion.getPromotionType().equals(PromotionType.Product_Discount.toString())
-								|| promotion.getPromotionType()
-										.equals(PromotionType.Manufacturer_Discount.toString())) && promotion.isActive() ) {
-							if(promotion.getStartDate().toString().equals(currentDateFormatted))
-							{
+								|| promotion.getPromotionType().equals(PromotionType.Manufacturer_Discount.toString()))
+								&& promotion.isActive()) {
+							if (promotion.getStartDate().toString().equals(currentDateFormatted)) {
 								promotionsStart.add(promotion);
-								
-							}
-							else if(promotion.getEndDate().toString().equals(currentDateFormatted))
-							{
+
+							} else if (promotion.getEndDate().toString().equals(currentDateFormatted)) {
 								promotionsStop.add(promotion);
 							}
 
 						}
-						if(!promotionsStart.isEmpty())
-						{
+						if (!promotionsStart.isEmpty()) {
 							promotionService.activatePromotions(promotionsStart);
 						}
-						if(!promotionsStop.isEmpty())
-						{
+						if (!promotionsStop.isEmpty()) {
+							promotionService.disablePromotions(promotionsStop);
+						}
+					}
+				} else if (scheduler.getType().equals(SchedulerType.ORDER_PROMOTIONS.toString())) {
+					List<Promotion> promotionsStart = new ArrayList<Promotion>();
+					List<Promotion> promotionsStop = new ArrayList<Promotion>();
+					List<Promotion> promotions = promotionService.list();
+					for (Promotion promotion : promotions) {
+						if ((promotion.getPromotionType().equals(PromotionType.Order_Discount.toString())
+								|| promotion.getPromotionType().equals(PromotionType.Free_Shipping.toString())
+								|| promotion.getPromotionType().equals(PromotionType.Threshold.toString())
+								|| promotion.getPromotionType().equals(PromotionType.Buy_X_get_Y_Free.toString()))
+								&& promotion.isActive()) {
+							if (promotion.getStartDate().toString().equals(currentDateFormatted)) {
+								promotionsStart.add(promotion);
+
+							} else if (promotion.getEndDate().toString().equals(currentDateFormatted)) {
+								promotionsStop.add(promotion);
+							}
+
+						}
+						if (!promotionsStart.isEmpty()) {
+							promotionService.activatePromotions(promotionsStart);
+						}
+						if (!promotionsStop.isEmpty()) {
 							promotionService.disablePromotions(promotionsStop);
 						}
 					}
 				}
 			}
 		}
-
 	}
+
 }

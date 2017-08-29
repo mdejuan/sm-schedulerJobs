@@ -232,7 +232,7 @@
 						</div>
 					</div>
 
-					<div class="control-group">
+					<%-- <div class="control-group">
 						<label class="required"><s:message
 								code="label.scheduler.repeat" text="Every" /></label>
 						<div class="controls">
@@ -246,7 +246,7 @@
 
 
 						</div>
-					</div>
+					</div> --%>
 
 					<div class="control-group">
 						<label><s:message code="label.scheduler.active"
