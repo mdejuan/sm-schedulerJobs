@@ -36,7 +36,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(AdminFilter.class);
 		@SuppressWarnings("unchecked")
 		Map<String,Menu> menus = (Map<String,Menu>) cache.getFromCache("MENUMAP");
 		Object updated = cache.getFromCache("promoUpdatedMenu");
-		Object updatedScheduler = cache.getFromCache("schedulerUpdatedMenu");
+		Object updatedScheduler = cache.getFromCache("0schedulerUpdatedMenu_");
 
 		if(menus!=null && updated != null && updatedScheduler == null) {
 			InputStream in = null;
@@ -68,7 +68,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(AdminFilter.class);
 
 				cache.putInCache(menus,"MENUMAP");
 				
-				cache.putInCache(true, "schedulerUpdatedMenu");
+				cache.putInCache(true, "0schedulerUpdatedMenu_");
 				
 
 			} catch (JsonParseException e) {

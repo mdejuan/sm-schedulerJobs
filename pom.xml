@@ -26,10 +26,11 @@
 				<version>${shopizer.version}</version>
 			</dependency>
 			
+			
 			<dependency>
 				<groupId>com.shopizer</groupId>
-				<artifactId>sm-shop</artifactId>
-				<version>${shopizer.version}</version>
+				<artifactId>sm-market</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
             <groupId>org.apache.tiles</groupId>

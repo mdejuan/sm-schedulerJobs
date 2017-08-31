@@ -78,15 +78,21 @@ public class ShedulerCronJob {
 							}
 
 						}
-						if (!promotionsStart.isEmpty()) {
-							promotionService.activatePromotions(promotionsStart);
-						}
-						if (!promotionsStop.isEmpty()) {
-							promotionService.disablePromotions(promotionsStop);
+						try {
+							if (!promotionsStart.isEmpty()) {
+								promotionService.activatePromotions(promotionsStart);
+							}
+							if (!promotionsStop.isEmpty()) {
+								promotionService.disablePromotions(promotionsStop);
+							}
+						} catch (Exception e) {
+							result.setResult("<font color='red'>ko</font>");
+							result.setDescription(e.getCause().getMessage().toString());
+							jobResultService.save(result);
 						}
 					}
 				} else if (scheduler.getType().equals(SchedulerType.ORDER_PROMOTIONS.toString())) {
-					
+
 				}
 			}
 		}
